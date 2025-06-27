@@ -1,0 +1,20 @@
+{
+  "name": "remote-desktop-service-e2e",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "implicitDependencies": ["remote-desktop-service"],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
+      "options": {
+        "jestConfig": "remote-desktop-service-e2e/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "dependsOn": [
+        "remote-desktop-service:build",
+        "remote-desktop-service:serve"
+      ]
+    }
+  }
+}
